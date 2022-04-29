@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>CART</h2>
+<mat-dialog-content class="details-dialog-content">
+  <ng-container *ngIf="carts$ | async as carts">
+    <pre>{{ carts | json}}</pre>
+    <!-- <mat-list>
+      <mat-list-item *ngFor="let product of products">
+        <img matListAvatar [src]={{product.image}} [alt]={{product.title}} />
+        <div mat-line>
+          <h3 class="d-flex" style="justify-content: space-between">
+            {{ product.title }}
+            {{ product.price | currency: "PLN":true }}
+            <span class="m-rt-20 m-lt-auto">
+              <add-to-card [product]="product" size="small"></add-to-card
+            ></span>
+          </h3>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div mat-line>
+          <h3 class="d-flex">
+            Total: <span class="local-total"></span>
+            <b>{{ product.price * product.quantity | currency: "PLN" }}</b>
+          </h3>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list> -->
+  </ng-container>
+</mat-dialog-content>
