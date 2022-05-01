@@ -1,36 +1,27 @@
-import {HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Cart, Product, User } from './interfaces';
-import * as users from '../app/data/users.json';
-import * as products from '../app/data/products.json';
-import * as carts from '../app/data/carts.json';
+import { Product, Cart, User } from './interfaces';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private userCookieKey = `${environment.cookieKey}user`;
-  private apiUrl: string = environment.apiUrl;
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {
   }
 
-
-  getAllUsers(): Observable<User[]>{
-    return of(users)
+  getCarts(): Promise<Cart[]> {
+    return lastValueFrom(this.http.get<Cart[]>(`${this.apiUrl}/carts`));
   }
 
-  getAllProducts(): Observable<Product[]>{
-    return of(products)
+  getProducts(): Promise<Product[]> {
+    return lastValueFrom(this.http.get<Product[]>(`${this.apiUrl}/products`));
   }
 
-  getAllCarts(): Observable<Cart[]>{
-    return of(carts)
-  }
-
-  getAllProductsByCategory(categoryName: string): Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.apiUrl}/products/${categoryName}`)
+  getUsers(): Promise<User[]> {
+    return lastValueFrom(this.http.get<User[]>(`${this.apiUrl}/users`));
   }
 }
