@@ -20,7 +20,7 @@ export class ProductCategoryComponent implements OnInit {
     this.products.forEach(product => {
       const productsInCategory = this.products.filter(productInCategory => productInCategory.category === product.category)
       this.categories.set(product.category, productsInCategory)
-    })
+    });
   }
 
   public getProductsNumber(products: Product[]): number {
