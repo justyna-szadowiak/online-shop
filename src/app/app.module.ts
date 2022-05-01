@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductCategoryComponent } from './product-category/product-category.component';
+import { UsersComponent } from './users/users.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ProductCategoryComponent } from './product-category/product-category.co
     PageNotFoundComponent,
     CartComponent,
     ProductCategoryComponent,
+    UsersComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

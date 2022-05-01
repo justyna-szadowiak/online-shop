@@ -1,0 +1,33 @@
+<h1>Users</h1>
+<mat-list>
+  <ng-container *ngIf="users.length">
+      <div mat-subheader>Users with the longest distance</div>
+      <button mat-button (click)="calcUserLongestDistance()">calculate</button>
+      <ng-container *ngIf="isUsersLongestDistanceVisible && usersWithLongestDistance.length">
+        <mat-card *ngFor="let user of usersWithLongestDistance">
+          <div>
+            {{user.name.firstname | titlecase}} {{user.name.lastname | titlecase}}
+          </div>
+          <div>
+            Geolocation: {{user.address.geolocation.lat}} {{user.address.geolocation.long}}
+          </div>
+          <div>
+            City: {{user.address.city | titlecase}}
+          </div>
+        </mat-card>
+      </ng-container>
+      <div mat-subheader>All users</div>
+      <mat-card *ngFor="let user of users">
+        <div>
+          {{user.name.firstname | titlecase}} {{user.name.lastname | titlecase}}
+        </div>
+        <div>
+          Geolocation: {{user.address.geolocation.lat}} {{user.address.geolocation.long}}
+        </div>
+        <div>
+          City: {{user.address.city | titlecase}}
+        </div>
+      </mat-card>
+  </ng-container>
+</mat-list>
+
